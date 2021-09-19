@@ -1,0 +1,21 @@
+{
+  "id": "f0156bcf-1a3d-4a30-b5ed-1afade634fb2",
+  "version": "2.0",
+  "name": "Open Cart",
+  "url": "",
+  "tests": [{
+    "id": "d7370f0d-332a-4bdb-9caf-91ff80cf7395",
+    "name": "MainPage",
+    "commands": []
+  }],
+  "suites": [{
+    "id": "05b0ca74-9cee-43eb-951f-6110ca0e446a",
+    "name": "Default Suite",
+    "persistSession": false,
+    "parallel": false,
+    "timeout": 300,
+    "tests": ["d7370f0d-332a-4bdb-9caf-91ff80cf7395"]
+  }],
+  "urls": [],
+  "plugins": []
+}
