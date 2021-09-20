@@ -24,9 +24,10 @@ def browser_param(request):
 
 
 @pytest.fixture()
-def driver(request, url_param):
+def driver(request, browser_param):
 #    url = request.config.getoption("--url")
-    browser = request.config.getoption("--browser")
+#    browser = request.config.getoption("--browser")
+    browser = browser_param
     if browser == 'firefox':
         capabilities = webdriver.DesiredCapabilities.FIREFOX.copy()
         capabilities['timeouts'] = {'implicit': 300000, 'pageLoad': 300000, 'script': 30000}
@@ -45,11 +46,11 @@ def driver(request, url_param):
     elif browser == 'chrome':
         capabilities = webdriver.DesiredCapabilities.CHROME.copy()
         options = webdriver.ChromeOptions()
-#       options.add_argument("--headless")
+        options.add_argument("--headless")
         wd = webdriver.Chrome(options=options, desired_capabilities=capabilities,
                               executable_path="E:\\seleniumdriver\\chromedriver.exe")
         wd.fullscreen_window()
-        print(wd.capabilities)
+#        print(wd.capabilities)
     else:
         raise Exception(f"{request.param} is not supported!")
 #        print('Unsupported browser!')
@@ -59,7 +60,7 @@ def driver(request, url_param):
 #    yield wd
 #    wd.quit()
     request.addfinalizer(wd.quit)
-    wd.get(url_param)
+##     wd.get(url_param)
 #    wd.get(request.config.getoption("--url"))
 
-    return wd, url_param
+    return wd

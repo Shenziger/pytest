@@ -7,5 +7,5 @@ class MainPage:
             link = (link_text, "Desktops")
             show_all = (partial_link, "Show All Desktops")
 
-    promoblock = (css, "#slideshow0")
+    promoblock = "#slideshow0"
     nav_links = "ul.nav > li"
